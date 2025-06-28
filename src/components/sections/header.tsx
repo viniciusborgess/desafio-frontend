@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@/components/ui/container';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -30,6 +31,13 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
+            <Image
+              src="/img/logo-mbras.png"
+              alt="Logo MBRAS"
+              width={40}
+              height={40}
+              className="mr-2"
+            />
             <span className="font-sans text-2xl font-bold text-slate-900">
               MBRAS
             </span>
