@@ -104,7 +104,6 @@ function ImageSlider({ images }: { images: string[] }) {
           {current + 1} / {total}
         </div>
       </div>
-      <p className="text-center text-xs text-slate-400 mt-3 font-light">Piscina coberta com raia de 25m</p>
     </div>
   );
 }

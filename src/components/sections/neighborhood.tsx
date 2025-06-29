@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Container } from '@/components/ui/container';
 import { PropertyData } from '@/types/special';
 import { Shield, School, Hospital, Trees } from 'lucide-react';
 import gsap from 'gsap';
-import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 gsap.registerPlugin(ScrollTrigger);
@@ -24,11 +23,36 @@ export function Neighborhood() {
       ? '/img/planta2.png'
       : '/img/planta3.png';
 
+  const plantaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!plantaRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        plantaRef.current,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: plantaRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    }, plantaRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="py-16 bg-white" id="neighborhood">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-start gap-12">
         {/* Imagem da planta */}
-        <div className="flex-1 flex justify-center items-center">
+        <div className="flex-1 flex justify-center items-center" ref={plantaRef}>
           <Image
             src={plantaImg}
             alt={`Planta do ${tab === 'terreo' ? 'térreo' : tab === 'pav2' ? '2º pavimento' : '6º pavimento'}`}
@@ -80,7 +104,7 @@ export function Neighborhood() {
           <hr className="my-2 border-gray-300" />
           <ol className="list-decimal list-inside text-gray-700 text-lg space-y-1" start={7}>
             <li>Loja</li>
-            <li>Entrada Home Studio<span className="text-xs align-super">*</span></li>
+            <li>Entrada Itacema 366<span className="text-xs align-super">*</span></li>
           </ol>
           <p className="text-xs text-gray-400 mt-2">* Área exclusiva para as unidades Itacema 366, com acesso independente.</p>
         </div>
