@@ -36,7 +36,7 @@ export function About({ property }: AboutProps) {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={sectionRef} className="py-16 bg-slate-50" id="about">
+    <section ref={sectionRef} className="py-16 bg-white" id="about">
       <Container>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
@@ -59,23 +59,6 @@ export function About({ property }: AboutProps) {
               </ul>
             </div>
           </div>
-        </div>
-        
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {property.characteristics.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="bg-amber-100 p-2 rounded-full">
-                    <Icon className="h-6 w-6 text-amber-700" />
-                  </div>
-                  <h3 className="text-lg font-medium text-slate-900 font-sans">{item.label}</h3>
-                </div>
-                <p className="text-2xl font-semibold text-color-900">{item.value}</p>
-              </div>
-            );
-          })}
         </div>
       </Container>
     </section>
