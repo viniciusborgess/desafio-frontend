@@ -55,25 +55,25 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
         />
       </div>
 
-      <div className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center text-center px-2 sm:px-4">
         <div ref={tagRef} className="mb-4 inline-block px-4 py-1 rounded-full bg-slate-900 text-white text-xs font-bold tracking-widest uppercase shadow-lg">
           {tag}
         </div>
-        <div ref={titleRef} className="text-4xl md:text-6xl font-light text-white drop-shadow-lg leading-tight">
+        <div ref={titleRef} className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-light text-white drop-shadow-lg leading-tight break-words">
           {title}
         </div>
-        <div ref={subtitleRef} className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg mb-4">
+        <div ref={subtitleRef} className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg mb-4 break-words">
           {subtitle}
         </div>
-        <div ref={locationRef} className="text-lg md:text-xl text-slate-200 font-medium mb-8 tracking-wide drop-shadow-md">
+        <div ref={locationRef} className="text-base sm:text-lg md:text-xl text-slate-200 font-medium mb-8 tracking-wide drop-shadow-md">
           {location}
         </div>
-        <div ref={buttonRef} className="w-full flex items-center justify-center gap-4 mt-4">
-          <hr className="w-16 border-t border-slate-400/80" />
-          <Button variant="primary" size="lg" className="px-10 py-4 text-lg shadow-xl hover:scale-105 transition-all duration-800 bg-slate-900 text-white border-none">
+        <div ref={buttonRef} className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+          <hr className="w-16 border-t border-slate-400/80 hidden sm:block" />
+          <Button variant="primary" size="lg" className="w-full sm:w-auto px-6 py-3 text-base sm:text-lg shadow-xl hover:scale-105 transition-all duration-800 bg-slate-900 text-white border-none">
             {buttonText}
           </Button>
-          <hr className="w-16 border-t border-slate-400/80" />
+          <hr className="w-16 border-t border-slate-400/80 hidden sm:block" />
         </div>
       </div>
     </section>

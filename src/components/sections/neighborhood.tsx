@@ -112,52 +112,52 @@ export function Neighborhood() {
 
   return (
     <section className="py-16 bg-white" id="neighborhood">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-start gap-12">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 flex flex-col md:flex-row items-start gap-6 sm:gap-12">
         {/* Imagem da planta */}
-        <div className="flex-1 flex justify-center items-center" ref={plantaRef}>
+        <div className="w-full flex justify-center items-center mb-6 md:mb-0" ref={plantaRef}>
           <Image
             key={imgKey}
             ref={imgRef}
             src={plantaImg}
             alt={`Planta do ${tab === 'terreo' ? 'térreo' : tab === 'pav2' ? '2º pavimento' : '6º pavimento'}`}
-            width={600}
-            height={600}
-            className="object-contain bg-white"
+            width={320}
+            height={320}
+            className="object-contain bg-white max-w-full h-auto mx-auto"
             priority
           />
         </div>
         {/* Conteúdo textual */}
-        <div className="flex-1 flex flex-col gap-6">
-          <div className="mb-4">
-            <span className="uppercase tracking-widest text-gray-500 font-bold text-sm">Plantas | Áreas Comuns</span>
-            <h2 className="mt-2 text-2xl md:text-3xl font-bold text-gray-800 leading-tight font-sans">
+        <div className="flex-1 flex flex-col gap-4 sm:gap-6 text-center md:text-left">
+          <div className="mb-2 sm:mb-4">
+            <span className="uppercase tracking-widest text-gray-500 font-bold text-xs sm:text-sm block">Plantas | Áreas Comuns</span>
+            <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-tight font-sans">
               Um terreno de esquina:<br />
               <span className="text-gray-400 font-semibold">valorizado e exclusivo.</span>
             </h2>
           </div>
           {/* Tabs interativas */}
-          <div className="flex gap-2 mb-6">
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6">
             <button
-              className={`px-4 py-2 font-bold rounded shadow ${tab === 'terreo' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'terreo' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('terreo')}
             >
               TÉRREO
             </button>
             <button
-              className={`px-4 py-2 font-bold rounded shadow ${tab === 'pav2' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav2' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('pav2')}
             >
               2º PAVIMENTO
             </button>
             <button
-              className={`px-4 py-2 font-bold rounded shadow ${tab === 'pav6' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav6' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('pav6')}
             >
               6º PAVIMENTO
             </button>
           </div>
           {/* Lista dinâmica */}
-          <ol className="list-decimal list-inside text-gray-700 text-lg space-y-1 mb-2">
+          <ol className="list-decimal list-inside text-gray-700 text-base sm:text-lg space-y-1 mb-2 mx-auto md:mx-0 max-w-xs md:max-w-none">
             {listaAtual.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}

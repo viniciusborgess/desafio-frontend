@@ -73,9 +73,9 @@ export function Contact({ property }: ContactProps) {
           Agende uma visita exclusiva ou solicite mais informações
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
             {isSubmitted ? (
               <div className="text-center py-8">
                 <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -173,7 +173,7 @@ export function Contact({ property }: ContactProps) {
 
           {/* Contact Information */}
           <div className="flex flex-col gap-6">
-            <div className="bg-white p-8 rounded-lg shadow-lg flex-1">
+            <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg flex-1">
               <h3 className="text-xl font-bold font-sans mb-4 text-slate-900">Atendimento Imediato</h3>
               <p className="text-slate-700 mb-4">
                 Nossos consultores estão prontos para atendê-lo e esclarecer todas as suas dúvidas sobre este imóvel de
@@ -193,7 +193,7 @@ export function Contact({ property }: ContactProps) {
               </a>
             </div>
 
-            <div className="bg-slate-900 text-white p-8 rounded-lg shadow-lg">
+            <div className="bg-slate-900 text-white p-4 sm:p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-bold mb-4 font-sans">Exclusividade MBRAS Imóveis</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">

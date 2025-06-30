@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300 pt-12 pb-6">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-8 mb-8">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-serif font-bold text-white mb-4">MBRAS Imóveis</h3>
@@ -120,11 +120,11 @@ export function Footer() {
         </div>
         
         <div className="border-t border-slate-700 pt-6 mt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 sm:gap-4">
+            <p className="text-xs sm:text-sm">
               &copy; {currentYear} MBRAS Imóveis. Todos os direitos reservados.
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm">
               <a href="#" className="hover:text-amber-500 transition-colors">
                 Política de Privacidade
               </a>

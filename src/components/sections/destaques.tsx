@@ -71,39 +71,39 @@ export function Destaques() {
     <section ref={sectionRef} className="py-20 bg-white">
       <Container>
         <h2 className="text-lg font-sans tracking-[0.5em] text-slate-600 mb-10 pl-2">OUTROS DESTAQUES</h2>
-        <div className="flex justify-center mb-10 border-b border-slate-200">
+        <div className="flex flex-wrap justify-center mb-10 border-b border-slate-200 gap-2 sm:gap-0">
           {tabs.map((t, i) => (
             <button
               key={t}
-              className={`px-6 py-3 text-sm font-medium uppercase tracking-wide border-b-2 transition-colors duration-200 ${tab === i ? 'border-slate-900 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-900'}`}
+              className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide border-b-2 transition-colors duration-200 ${tab === i ? 'border-slate-900 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-900'}`}
               onClick={() => setTab(i)}
             >
               {t}
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
           {destaques.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col items-center transition-all hover:shadow-lg group"
+              className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col items-center transition-all hover:shadow-lg group p-4 sm:p-8"
             >
-              <div className="w-full h-72 relative">
+              <div className="w-full h-44 xs:h-56 sm:h-72 relative">
                 <Image src={item.imagem} alt={item.nome} fill style={{objectFit:'cover'}} className="w-full h-full" />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6">
                   <div className="flex items-center gap-2 text-white mb-2">
                     <MapPin className="w-5 h-5" />
-                    <span className="text-sm font-medium">{item.endereco}</span>
+                    <span className="text-xs sm:text-sm font-medium">{item.endereco}</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <Bed className="w-5 h-5" />
-                    <span className="text-sm font-medium">{item.dormitorios}</span>
+                    <span className="text-xs sm:text-sm font-medium">{item.dormitorios}</span>
                   </div>
                 </div>
               </div>
-              <div className="p-8 w-full flex flex-col items-center">
-                <h3 className="text-lg font-sans font-semibold text-slate-700 mb-2 text-center">
+              <div className="pt-4 sm:pt-8 w-full flex flex-col items-center">
+                <h3 className="text-base sm:text-lg font-sans font-semibold text-slate-700 mb-1 sm:mb-2 text-center">
                   {item.nome.split(' ').slice(0, -1).join(' ')}{' '}
                   <span className="font-bold">{item.nome.split(' ').slice(-1)}</span>
                 </h3>
@@ -113,7 +113,7 @@ export function Destaques() {
           ))}
         </div>
         <div className="flex justify-center">
-          <Button variant="outline" size="lg" className="px-10 py-4 text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all">
+          <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all">
             TODOS EMPREENDIMENTOS
           </Button>
         </div>
