@@ -110,7 +110,7 @@ export function Header() {
               >
                 Contato
               </Link>
-              <Button variant="primary" className="mt-2">
+              <Button variant="primary" className="mt-2 bg-slate-900">
                 Agendar Visita
               </Button>
             </nav>
