@@ -43,7 +43,7 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
 
   return (
     <section ref={heroRef} className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-slate-900">
-      {/* Background image with overlay */}
+      {/* Imagem de fundo */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/img/foto-header.jpg"
@@ -54,7 +54,7 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
           priority
         />
       </div>
-      {/* Overlay content */}
+
       <div className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4">
         <div ref={tagRef} className="mb-4 inline-block px-4 py-1 rounded-full bg-slate-900 text-white text-xs font-bold tracking-widest uppercase shadow-lg">
           {tag}

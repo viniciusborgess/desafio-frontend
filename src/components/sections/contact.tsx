@@ -9,6 +9,7 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send, Phone, Check } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 interface ContactProps {
   property: PropertyData;
@@ -25,6 +26,8 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function Contact({ property }: ContactProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -36,11 +39,25 @@ export function Contact({ property }: ContactProps) {
     },
   });
 
-  function onSubmit(values: FormValues) {
-    console.log(values);
-    setTimeout(() => {
-      setIsSubmitted(true);
-    }, 1000);
+  async function onSubmit(values: FormValues) {
+    setLoading(true);
+    setError(null);
+    const { error } = await supabase.from('contacts').insert([
+      {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        property_code: property?.code || null,
+        created_at: new Date().toISOString(),
+      },
+    ]);
+    setLoading(false);
+    if (error) {
+      setError('Erro ao enviar mensagem. Tente novamente.');
+      return;
+    }
+    setIsSubmitted(true);
   }
 
   const formatWhatsAppNumber = (number: string) => {
@@ -143,11 +160,12 @@ export function Contact({ property }: ContactProps) {
                       )}
                     />
 
-                    <Button type="submit" variant="primary" className="w-full bg-slate-900">
-                      <Send className="h-4 w-4 mr-2" /> Enviar Mensagem
+                    <Button type="submit" variant="primary" className="w-full bg-slate-900" disabled={loading}>
+                      {loading ? 'Enviando...' : (<><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>)}
                     </Button>
                   </form>
                 </Form>
+                {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
               </>
             )}
           </div>

@@ -69,7 +69,7 @@ export function Destaques() {
   return (
     <section ref={sectionRef} className="py-20 bg-white">
       <Container>
-        <h2 className="text-lg font-sans tracking-[0.5em] text-slate-600 mb-10 pl-2">DESTAQUES</h2>
+        <h2 className="text-lg font-sans tracking-[0.5em] text-slate-600 mb-10 pl-2">OUTROS DESTAQUES</h2>
         <div className="flex justify-center mb-10 border-b border-slate-200">
           {tabs.map((t, i) => (
             <button

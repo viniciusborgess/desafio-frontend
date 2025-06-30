@@ -13,6 +13,7 @@ import { Neighborhood } from "@/components/sections/neighborhood";
 import { Contact } from "@/components/sections/contact";
 import { useState } from 'react';
 import { Destaques } from '@/components/sections/destaques';
+import { AboutMBRAS } from '@/components/sections/about-mbras';
 
 export default function Home() {
   return (
@@ -55,7 +56,8 @@ export default function Home() {
 
         {/* Detalhes do imóvel, vizinhança e contato */}
         <About property={itacema366Data} />
-        <Neighborhood property={itacema366Data} />
+        <Neighborhood />
+        <AboutMBRAS />
         <Contact property={itacema366Data} />
       </main>
       <Footer />
@@ -72,13 +74,13 @@ function ImageSlider({ images }: { images: string[] }) {
 
   return (
     <div className="w-full">
-      <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-2xl border border-gray-700">
+      <div className="relative aspect-[16/9] overflow-hidden shadow-2xl border border-gray-700">
         <Image
           src={images[current]}
           alt={`Imagem ${current + 1}`}
           fill
           style={{ objectFit: 'cover' }}
-          className="w-full h-full transition-all duration-500 ease-in-out transform hover:scale-105"
+          className="w-full h-full"
         />
         {/* Botões de navegação */}
         <button
