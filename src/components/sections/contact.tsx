@@ -1,5 +1,4 @@
-
-
+"use client";
 import React, { useState } from 'react';
 import { Container } from '@/components/ui/container';
 import { PropertyData } from '@/types/special';
