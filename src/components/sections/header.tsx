@@ -45,16 +45,16 @@ export function Header() {
 
           {/* Navegação Desktop */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="#about" className="text-slate-700 hover:text-amber-500 transition-colors">
+            <Link href="#about" className="text-slate-700 hover:text-gray-500 transition-colors">
               Sobre
             </Link>
-            <Link href="#gallery" className="text-slate-700 hover:text-amber-500 transition-colors">
+            <Link href="#gallery" className="text-slate-700 hover:text-gray-500 transition-colors">
               Galeria
             </Link>
-            <Link href="#highlights" className="text-slate-700 hover:text-amber-500 transition-colors">
+            <Link href="#highlights" className="text-slate-700 hover:text-gray-500 transition-colors">
               Destaques
             </Link>
-            <Link href="#contact" className="text-slate-700 hover:text-amber-500 transition-colors">
+            <Link href="#contact" className="text-slate-700 hover:text-gray-500 transition-colors">
               Contato
             </Link>
             <Button variant="primary" size="sm" className='bg-slate-900'>
