@@ -9,11 +9,12 @@ import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 
 type PropertyPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: PropertyPageProps) {
-  if (params.slug !== 'itacema-366') {
+export async function generateMetadata({ params }: PropertyPageProps) {
+  const { slug } = await params;
+  if (slug !== 'itacema-366') {
     return {
       title: 'Imóvel não encontrado | MBRAS Imóveis',
     };
@@ -28,8 +29,9 @@ export function generateMetadata({ params }: PropertyPageProps) {
   };
 }
 
-export default function PropertyPage({ params }: PropertyPageProps) {
-  if (params.slug !== 'itacema-366') {
+export default async function PropertyPage({ params }: PropertyPageProps) {
+  const { slug } = await params;
+  if (slug !== 'itacema-366') {
     notFound();
   }
 
@@ -39,10 +41,17 @@ export default function PropertyPage({ params }: PropertyPageProps) {
     <>
       <Header />
       <main>
-        <Hero property={propertyData} />
+        <Hero
+          image={propertyData.images[0]}
+          tag="LANÇAMENTO"
+          title={propertyData.name}
+          subtitle={propertyData.tagline}
+          location={propertyData.location}
+          buttonText="Agendar Visita"
+        />
         <Gallery property={propertyData} />
         <About property={propertyData} />
-        <Neighborhood property={propertyData} />
+        <Neighborhood />
         <Contact property={propertyData} />
       </main>
       <Footer />
