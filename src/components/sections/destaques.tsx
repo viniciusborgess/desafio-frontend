@@ -68,41 +68,55 @@ export function Destaques() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white">
+    <section ref={sectionRef} className="py-10 sm:py-20 bg-white">
       <Container>
-        <h2 className="text-lg font-sans tracking-[0.5em] text-slate-600 mb-10 pl-2">OUTROS DESTAQUES</h2>
-        <div className="flex flex-wrap justify-center mb-10 border-b border-slate-200 gap-2 sm:gap-0">
-          {tabs.map((t, i) => (
-            <button
-              key={t}
-              className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide border-b-2 transition-colors duration-200 ${tab === i ? 'border-slate-900 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-900'}`}
-              onClick={() => setTab(i)}
-            >
-              {t}
-            </button>
-          ))}
+        <h2 className="text-xs sm:text-lg font-sans tracking-[0.3em] sm:tracking-[0.5em] text-slate-600 mb-6 sm:mb-10 pl-1 sm:pl-2 text-center">OUTROS DESTAQUES</h2>
+        {/* Tabs responsivas: 2 linhas no mobile, 1 linha no desktop */}
+        <div className="flex flex-wrap justify-center mb-6 sm:mb-10 border-b border-slate-200 gap-x-6 gap-y-2">
+          <div className="flex w-full sm:w-auto justify-center gap-x-6 mb-2 sm:mb-0">
+            {tabs.slice(0, 2).map((t, i) => (
+              <button
+                key={t}
+                className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide border-b-2 transition-colors duration-200 ${tab === i ? 'border-slate-900 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-900'}`}
+                onClick={() => setTab(i)}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+          <div className="flex w-full sm:w-auto justify-center gap-x-6">
+            {tabs.slice(2).map((t, i) => (
+              <button
+                key={t}
+                className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium uppercase tracking-wide border-b-2 transition-colors duration-200 ${tab === i + 2 ? 'border-slate-900 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-900'}`}
+                onClick={() => setTab(i + 2)}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
           {destaques.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col items-center transition-all hover:shadow-lg group p-4 sm:p-8"
+              className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col items-center transition-all hover:shadow-lg group"
             >
-              <div className="w-full h-44 xs:h-56 sm:h-72 relative">
+              <div className="w-full h-44 sm:h-72 relative">
                 <Image src={item.imagem} alt={item.nome} fill style={{objectFit:'cover'}} className="w-full h-full" />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <div className="flex items-center gap-2 text-white mb-2">
                     <MapPin className="w-5 h-5" />
-                    <span className="text-xs sm:text-sm font-medium">{item.endereco}</span>
+                    <span className="text-sm font-medium">{item.endereco}</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <Bed className="w-5 h-5" />
-                    <span className="text-xs sm:text-sm font-medium">{item.dormitorios}</span>
+                    <span className="text-sm font-medium">{item.dormitorios}</span>
                   </div>
                 </div>
               </div>
-              <div className="pt-4 sm:pt-8 w-full flex flex-col items-center">
+              <div className="p-4 sm:p-8 w-full flex flex-col items-center">
                 <h3 className="text-base sm:text-lg font-sans font-semibold text-slate-700 mb-1 sm:mb-2 text-center">
                   {item.nome.split(' ').slice(0, -1).join(' ')}{' '}
                   <span className="font-bold">{item.nome.split(' ').slice(-1)}</span>
@@ -113,7 +127,7 @@ export function Destaques() {
           ))}
         </div>
         <div className="flex justify-center">
-          <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all">
+          <Button variant="outline" size="lg" className="px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all">
             TODOS EMPREENDIMENTOS
           </Button>
         </div>

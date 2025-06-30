@@ -56,11 +56,11 @@ export function Gallery({ property }: GalleryProps) {
   const visibleThumbnails = property.images.slice(0, 8); 
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
+    <section ref={sectionRef} className="py-10 sm:py-16 bg-white">
       <Container>
-        <h2 className="text-3xl font-serif font-bold mb-6 text-slate-900">Galeria de Imagens</h2>
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-4 sm:mb-6 text-slate-900">Galeria de Imagens</h2>
 
-        <div className="relative mb-8 overflow-x-hidden">
+        <div className="relative mb-6 sm:mb-8">
           <div className="aspect-[16/9] relative rounded-lg overflow-hidden shadow-lg">
             <Image
               src={property.images[currentIndex]}
@@ -71,26 +71,29 @@ export function Gallery({ property }: GalleryProps) {
               className="transition-opacity duration-500"
             />
           </div>
+          
           <button 
             onClick={handlePrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-10"
+            className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 p-1 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
             aria-label="Imagem anterior"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} className="sm:size-24" />
           </button>
+          
           <button 
             onClick={handleNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-10"
+            className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 p-1 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
             aria-label="Próxima imagem"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} className="sm:size-24" />
           </button>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-4 py-1 rounded-full text-white text-xs sm:text-sm">
+          
+          <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-2 sm:px-4 py-0.5 sm:py-1 rounded-full text-white text-xs sm:text-sm">
             {currentIndex + 1} / {property.images.length}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
           {visibleThumbnails.map((image, index) => (
             <div 
               key={index}
@@ -111,8 +114,8 @@ export function Gallery({ property }: GalleryProps) {
         </div>
         
         {property.images.length > 8 && (
-          <div className="text-center mt-4">
-            <p className="text-slate-500 text-sm">+ {property.images.length - 8} imagens disponíveis</p>
+          <div className="text-center mt-2 sm:mt-4">
+            <p className="text-slate-500 text-xs sm:text-sm">+ {property.images.length - 8} imagens disponíveis</p>
           </div>
         )}
       </Container>

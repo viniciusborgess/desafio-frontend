@@ -111,60 +111,60 @@ export function Neighborhood() {
   if (tab === 'pav6') listaAtual = listaPav6;
 
   return (
-    <section className="py-16 bg-white" id="neighborhood">
+    <section className="py-8 sm:py-16 bg-white" id="neighborhood">
       <div className="max-w-6xl mx-auto px-2 sm:px-4 flex flex-col md:flex-row items-start gap-6 sm:gap-12">
         {/* Imagem da planta */}
-        <div className="w-full flex justify-center items-center mb-6 md:mb-0" ref={plantaRef}>
+        <div className="flex-1 w-full flex justify-center items-center mb-6 md:mb-0" ref={plantaRef}>
           <Image
             key={imgKey}
             ref={imgRef}
             src={plantaImg}
             alt={`Planta do ${tab === 'terreo' ? 'térreo' : tab === 'pav2' ? '2º pavimento' : '6º pavimento'}`}
-            width={320}
-            height={320}
-            className="object-contain bg-white max-w-full h-auto mx-auto"
+            width={320} // mobile
+            height={320} // mobile
+            className="object-contain bg-white w-full max-w-xs sm:max-w-md md:max-w-lg"
             priority
           />
         </div>
         {/* Conteúdo textual */}
-        <div className="flex-1 flex flex-col gap-4 sm:gap-6 text-center md:text-left">
+        <div className="flex-1 w-full flex flex-col gap-4 sm:gap-6">
           <div className="mb-2 sm:mb-4">
-            <span className="uppercase tracking-widest text-gray-500 font-bold text-xs sm:text-sm block">Plantas | Áreas Comuns</span>
-            <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-tight font-sans">
+            <span className="uppercase tracking-widest text-gray-500 font-bold text-xs sm:text-sm block text-center md:text-left">Plantas | Áreas Comuns</span>
+            <h2 className="mt-1 sm:mt-2 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-tight font-sans text-center md:text-left">
               Um terreno de esquina:<br />
               <span className="text-gray-400 font-semibold">valorizado e exclusivo.</span>
             </h2>
           </div>
           {/* Tabs interativas */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6">
+          <div className="flex gap-1 sm:gap-2 mb-4 sm:mb-6 justify-center md:justify-start">
             <button
-              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'terreo' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-1 sm:py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'terreo' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('terreo')}
             >
               TÉRREO
             </button>
             <button
-              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav2' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-1 sm:py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav2' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('pav2')}
             >
               2º PAVIMENTO
             </button>
             <button
-              className={`px-3 sm:px-4 py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav6' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-3 sm:px-4 py-1 sm:py-2 font-bold rounded shadow text-xs sm:text-base ${tab === 'pav6' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => handleTab('pav6')}
             >
               6º PAVIMENTO
             </button>
           </div>
           {/* Lista dinâmica */}
-          <ol className="list-decimal list-inside text-gray-700 text-base sm:text-lg space-y-1 mb-2 mx-auto md:mx-0 max-w-xs md:max-w-none">
+          <ol className="list-decimal list-inside text-gray-700 text-base sm:text-lg space-y-1 mb-1 sm:mb-2 text-center md:text-left">
             {listaAtual.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ol>
           {/* Observação para o térreo e 2º pavimento */}
           {(tab === 'terreo' || tab === 'pav2') && (
-            <p className="text-xs text-gray-400 mt-2">* Área exclusiva para as unidades Itacema 366, com acesso independente.</p>
+            <p className="text-xs text-gray-400 mt-1 sm:mt-2 text-center md:text-left">* Área exclusiva para as unidades Itacema 366, com acesso independente.</p>
           )}
         </div>
       </div>

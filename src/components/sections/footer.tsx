@@ -7,17 +7,17 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-12 pb-6">
+    <footer className="bg-slate-900 text-slate-300 pt-8 sm:pt-12 pb-4 sm:pb-6">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-serif font-bold text-white mb-4">MBRAS Imóveis</h3>
-            <p className="text-sm leading-relaxed mb-4">
+            <h3 className="text-lg sm:text-xl font-serif font-bold text-white mb-3 sm:mb-4">MBRAS Imóveis</h3>
+            <p className="text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
               Especialistas em imóveis de alto padrão com mais de 15 anos de experiência em proporcionar 
               experiências imobiliárias excepcionais para clientes exigentes.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               <a 
                 href="#" 
                 className="text-white hover:text-amber-500 transition-colors"
@@ -44,8 +44,8 @@ export function Footer() {
           
           {/* Quick Links */}
           <div>
-            <h4 className="text-white text-lg font-medium mb-4 font-sans">Links Rápidos</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Links Rápidos</h4>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link href="#about" className="hover:text-amber-500 transition-colors font-sans">
                   Sobre o Imóvel
@@ -71,8 +71,8 @@ export function Footer() {
           
           {/* Services */}
           <div>
-            <h4 className="text-white text-lg font-medium mb-4 font-sans">Nossos Serviços</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Nossos Serviços</h4>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <a href="#" className="hover:text-amber-500 transition-colors">
                   Compra e Venda
@@ -98,8 +98,8 @@ export function Footer() {
           
           {/* Contact */}
           <div>
-            <h4 className="text-white text-lg font-medium mb-4 font-sans">Contato</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Contato</h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li className="flex gap-3 items-start">
                 <Mail className="h-5 w-5 flex-shrink-0 text-amber-500 mt-0.5" />
                 <span>contato@mbrasimoveis.com.br</span>
@@ -119,12 +119,12 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-slate-700 pt-6 mt-6">
+        <div className="border-t border-slate-700 pt-4 sm:pt-6 mt-4 sm:mt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 sm:gap-4">
             <p className="text-xs sm:text-sm">
               &copy; {currentYear} MBRAS Imóveis. Todos os direitos reservados.
             </p>
-            <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm">
+            <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
               <a href="#" className="hover:text-amber-500 transition-colors">
                 Política de Privacidade
               </a>

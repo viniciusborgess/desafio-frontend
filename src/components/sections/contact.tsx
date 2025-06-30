@@ -66,14 +66,14 @@ export function Contact({ property }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-16 bg-slate-50">
+    <section id="contact" className="py-10 sm:py-16 bg-slate-50">
       <Container>
-        <h2 className="text-3xl font-sans font-bold mb-2 text-slate-900">Entre em Contato</h2>
-        <p className="text-slate-600 mb-8 text-lg">
+        <h2 className="text-2xl sm:text-3xl font-sans font-bold mb-2 text-slate-900 text-center sm:text-left">Entre em Contato</h2>
+        <p className="text-slate-600 mb-6 sm:mb-8 text-base sm:text-lg text-center sm:text-left">
           Agende uma visita exclusiva ou solicite mais informações
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Contact Form */}
           <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
             {isSubmitted ? (
@@ -99,8 +99,8 @@ export function Contact({ property }: ContactProps) {
               <>
                 <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Solicite Informações</h3>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <FormField
                         control={form.control}
                         name="name"
@@ -161,7 +161,7 @@ export function Contact({ property }: ContactProps) {
                       )}
                     />
 
-                    <Button type="submit" variant="primary" className="w-full bg-slate-900" disabled={loading}>
+                    <Button type="submit" variant="primary" className="w-full bg-slate-900 text-base sm:text-lg py-3 sm:py-4" disabled={loading}>
                       {loading ? 'Enviando...' : (<><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>)}
                     </Button>
                   </form>
@@ -172,7 +172,7 @@ export function Contact({ property }: ContactProps) {
           </div>
 
           {/* Contact Information */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 sm:gap-6 mt-6 md:mt-0">
             <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg flex-1">
               <h3 className="text-xl font-bold font-sans mb-4 text-slate-900">Atendimento Imediato</h3>
               <p className="text-slate-700 mb-4">
