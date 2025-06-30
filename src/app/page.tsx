@@ -20,7 +20,6 @@ export default function Home() {
     <>
       <Header />
       <main>
-        {/* Hero Showcase Section */}
         <HeroShowcase
           image="/img/foto-header.jpg"
           tag="EM DESTAQUE"
@@ -38,7 +37,6 @@ export default function Home() {
           <Container>
             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
               {/* Texto à esquerda */}
-              {/* Changed this to md:w-1/2 to ensure both halves are explicit */}
               <div className="md:w-1/2 w-full flex flex-col items-center md:items-start text-center md:text-left justify-center ">
                 <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-widest mb-6 text-white uppercase">O CONCEITO DOS MELHORES HOTÉIS DO MUNDO NA SUA CASA</h2>
                 <p className="text-base md:text-lg text-slate-200 max-w-xl mb-8 tracking-wide leading-relaxed">
@@ -46,7 +44,6 @@ export default function Home() {
                 </p>
               </div>
               {/* Slider de imagens à direita */}
-              {/* This remains md:w-1/2 */}
               <div className="md:w-1/2 w-full max-w-xl">
                 <ImageSlider images={itacema366Data.images} />
               </div>

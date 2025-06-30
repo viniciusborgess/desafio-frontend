@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="bg-slate-900 text-slate-300 pt-8 sm:pt-12 pb-4 sm:pb-6">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
-          {/* Company Info */}
+          
           <div>
             <h3 className="text-lg sm:text-xl font-serif font-bold text-white mb-3 sm:mb-4">MBRAS Imóveis</h3>
             <p className="text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
@@ -42,7 +42,7 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Quick Links */}
+         
           <div>
             <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Links Rápidos</h4>
             <ul className="space-y-1 sm:space-y-2">
@@ -69,7 +69,7 @@ export function Footer() {
             </ul>
           </div>
           
-          {/* Services */}
+          {/* Serviços */}
           <div>
             <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Nossos Serviços</h4>
             <ul className="space-y-1 sm:space-y-2">
@@ -96,7 +96,7 @@ export function Footer() {
             </ul>
           </div>
           
-          {/* Contact */}
+          {/* Contato */}
           <div>
             <h4 className="text-white text-base sm:text-lg font-medium mb-3 sm:mb-4 font-sans">Contato</h4>
             <ul className="space-y-2 sm:space-y-3">

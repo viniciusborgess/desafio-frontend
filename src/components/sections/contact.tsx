@@ -74,7 +74,6 @@ export function Contact({ property }: ContactProps) {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {/* Contact Form */}
           <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
             {isSubmitted ? (
               <div className="text-center py-8">
@@ -171,7 +170,6 @@ export function Contact({ property }: ContactProps) {
             )}
           </div>
 
-          {/* Contact Information */}
           <div className="flex flex-col gap-4 sm:gap-6 mt-6 md:mt-0">
             <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg flex-1">
               <h3 className="text-xl font-bold font-sans mb-4 text-slate-900">Atendimento Imediato</h3>

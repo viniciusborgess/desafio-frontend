@@ -43,7 +43,7 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Navegação Desktop */}
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#about" className="text-slate-700 hover:text-amber-500 transition-colors">
               Sobre
@@ -62,7 +62,7 @@ export function Header() {
             </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Botão menu mobile */}
           <button
             className="md:hidden p-2 text-slate-900"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
