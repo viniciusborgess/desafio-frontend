@@ -79,3 +79,5 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
     </section>
   );
 }
+
+export const Hero = HeroShowcase;
