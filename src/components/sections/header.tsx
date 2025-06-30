@@ -51,8 +51,8 @@ export function Header() {
             <Link href="#gallery" className="text-slate-700 hover:text-amber-500 transition-colors">
               Galeria
             </Link>
-            <Link href="#neighborhood" className="text-slate-700 hover:text-amber-500 transition-colors">
-              Vizinhança
+            <Link href="#highlights" className="text-slate-700 hover:text-amber-500 transition-colors">
+              Destaques
             </Link>
             <Link href="#contact" className="text-slate-700 hover:text-amber-500 transition-colors">
               Contato

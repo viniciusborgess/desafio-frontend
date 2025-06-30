@@ -123,9 +123,9 @@ export function Highlights() {
   const highlightsFiltrados = highlights.filter((item) => item.tab === tab);
 
   return (
-    <section ref={sectionRef} className="py-10 sm:py-20 bg-white">
+    <section ref={sectionRef} className="py-10 sm:py-20 bg-white" id="highlights">
       <Container>
-        <h2 className="text-xs sm:text-lg font-sans tracking-[0.3em] sm:tracking-[0.5em] text-slate-600 mb-6 sm:mb-10 pl-1 sm:pl-2 text-center">OUTROS HIGHLIGHTS</h2>
+        <h2 className="text-xs sm:text-lg font-sans tracking-[0.3em] sm:tracking-[0.5em] text-slate-600 mb-6 sm:mb-10 pl-1 sm:pl-2 text-center">OUTROS DESTAQUES</h2>
         {/* Tabs responsivas: 2 linhas no mobile, 1 linha no desktop */}
         <div className="flex flex-wrap justify-center mb-6 sm:mb-10 border-b border-slate-200 gap-x-6 gap-y-2">
           <div className="flex w-full sm:w-auto justify-center gap-x-6 mb-2 sm:mb-0">
