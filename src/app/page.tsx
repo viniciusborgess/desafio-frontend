@@ -12,7 +12,7 @@ import { About } from "@/components/sections/about";
 import { Neighborhood } from "@/components/sections/neighborhood";
 import { Contact } from "@/components/sections/contact";
 import { useState } from 'react';
-import { Destaques } from '@/components/sections/destaques';
+import { Highlights } from '@/components/sections/highlights';
 import { AboutMBRAS } from '@/components/sections/about-mbras';
 
 export default function Home() {
@@ -30,8 +30,8 @@ export default function Home() {
           buttonText="Ver Propriedade"
         />
 
-        {/* Seção Destaques */}
-        <Destaques />
+        {/* Seção Highlights */}
+        <Highlights />
 
         {/* Seção de Destaque */}
         <section className="py-16 bg-slate-900">

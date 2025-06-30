@@ -9,20 +9,22 @@ import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-const destaques = [
+const highlights = [
   {
     nome: 'RYT JARDINS APARTMENTS',
     local: 'JARDINS - SÃO PAULO/SP',
     imagem: '/img/ap1.jpg',
-    endereco: 'R. Dr. Penaforte Mendes, 74',
+    endereco: 'R. Oscar Freire, 124',
     dormitorios: '1 e 2 Dorms.',
+    tab: 0,
   },
   {
     nome: 'ITAIM BIBI SMART STUDIOS',
     local: 'ITAIM BIBI - SÃO PAULO/SP',
     imagem: '/img/ap2.jpg',
-    endereco: 'R. Dr. Penaforte Mendes, 74',
+    endereco: 'R. Dr. Penaforte Mendes, 42',
     dormitorios: 'Studios',
+    tab: 0,
   },
   {
     nome: 'EVOKE',
@@ -30,6 +32,57 @@ const destaques = [
     imagem: '/img/ap3.jpg',
     endereco: 'Reserva do Paiva',
     dormitorios: '2 e 3 Dorms.',
+    tab: 0,
+  },
+  // Breve Lançamento
+  {
+    nome: 'VILLA BELLA RESIDENCE',
+    local: 'ALTO DE PINHEIROS - SÃO PAULO/SP',
+    imagem: '/img/breve1.jpeg',
+    endereco: 'Av. das Magnólias, 500',
+    dormitorios: '4 Suítes',
+    tab: 1,
+  },
+  {
+    nome: 'SKYLINE TOWER',
+    local: 'BROOKLIN - SÃO PAULO/SP',
+    imagem: '/img/breve2.jpeg',
+    endereco: 'Rua do Brooklin, 1000',
+    dormitorios: '3 e 4 Dorms.',
+    tab: 1,
+  },
+  {
+    nome: 'PARK VIEW LUXURY',
+    local: 'VILA NOVA CONCEIÇÃO - SÃO PAULO/SP',
+    imagem: '/img/breve3.jpeg',
+    endereco: 'Rua Domingos Leme, 900',
+    dormitorios: '2 e 3 Suítes',
+    tab: 1,
+  },
+  // Em Construção
+  {
+    nome: 'OCEAN VIEW RESIDENCE',
+    local: 'VILA NOVA CONCEIÇÃO - SÃO PAULO/SP',
+    imagem: '/img/construcao1.jpeg',
+    endereco: 'Rua das Palmeiras, 200',
+    dormitorios: '2 e 3 Suítes',
+    tab: 2,
+  },
+  {
+    nome: 'GARDEN PLACE',
+    local: 'MOEMA - SÃO PAULO/SP',
+    imagem: '/img/construcao2.jpeg',
+    endereco: 'Alameda dos Jardins, 350',
+    dormitorios: 'Studios e 2 Dorms.',
+    tab: 2,
+  },
+  {
+    nome: 'PINHEIROS PRIME',
+    local: 'PINHEIROS - SÃO PAULO/SP',
+    imagem: '/img/construcao3.jpeg',
+    endereco: 'Rua dos Pinheiros, 800',
+    dormitorios: '3 e 4 Dorms.',
+    tab: 2,
   },
 ];
 
@@ -37,10 +90,9 @@ const tabs = [
   'LANÇAMENTOS',
   'BREVE LANÇAMENTO',
   'EM CONSTRUÇÃO',
-  'CONCLUÍDOS',
 ];
 
-export function Destaques() {
+export function Highlights() {
   const [tab, setTab] = React.useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -67,10 +119,13 @@ export function Destaques() {
     return () => ctx.revert();
   }, []);
 
+  // Filtrar highlights por tab
+  const highlightsFiltrados = highlights.filter((item) => item.tab === tab);
+
   return (
     <section ref={sectionRef} className="py-10 sm:py-20 bg-white">
       <Container>
-        <h2 className="text-xs sm:text-lg font-sans tracking-[0.3em] sm:tracking-[0.5em] text-slate-600 mb-6 sm:mb-10 pl-1 sm:pl-2 text-center">OUTROS DESTAQUES</h2>
+        <h2 className="text-xs sm:text-lg font-sans tracking-[0.3em] sm:tracking-[0.5em] text-slate-600 mb-6 sm:mb-10 pl-1 sm:pl-2 text-center">OUTROS HIGHLIGHTS</h2>
         {/* Tabs responsivas: 2 linhas no mobile, 1 linha no desktop */}
         <div className="flex flex-wrap justify-center mb-6 sm:mb-10 border-b border-slate-200 gap-x-6 gap-y-2">
           <div className="flex w-full sm:w-auto justify-center gap-x-6 mb-2 sm:mb-0">
@@ -97,7 +152,7 @@ export function Destaques() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
-          {destaques.map((item, idx) => (
+          {highlightsFiltrados.map((item, idx) => (
             <div
               key={idx}
               className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col items-center transition-all hover:shadow-lg group"

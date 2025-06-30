@@ -49,7 +49,7 @@ export function About({ property }: AboutProps) {
           
           <div className="flex-1">
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Destaques</h3>
+              <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Highlights</h3>
               <ul className="space-y-3">
                 {property.about.highlights.map((highlight, index) => (
                   <li key={index} className="flex gap-3 items-start">
