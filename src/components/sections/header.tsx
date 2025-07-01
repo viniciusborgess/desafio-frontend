@@ -24,6 +24,13 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleAgendarVisita = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
       className={"fixed top-0 left-0 w-full z-50 bg-white shadow-md py-2 transition-all duration-300"}
@@ -57,7 +64,7 @@ export function Header() {
             <Link href="#contact" className="text-slate-700 hover:text-gray-500 transition-colors">
               Contato
             </Link>
-            <Button variant="primary" size="sm" className='bg-slate-900'>
+            <Button variant="primary" size="sm" className='bg-slate-900' onClick={handleAgendarVisita}>
               Agendar Visita
             </Button>
           </nav>
@@ -110,7 +117,7 @@ export function Header() {
               >
                 Contato
               </Link>
-              <Button variant="primary" className="mt-2 bg-slate-900">
+              <Button variant="primary" className="mt-2 bg-slate-900" onClick={() => { setIsMobileMenuOpen(false); handleAgendarVisita(); }}>
                 Agendar Visita
               </Button>
             </nav>

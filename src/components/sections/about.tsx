@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container } from '@/components/ui/container';
 import { PropertyData } from '@/types/special';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, RulerDimensionLine, Home, Car } from 'lucide-react';
 import gsap from 'gsap';
 import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,6 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 interface AboutProps {
   property: PropertyData;
 }
+
+// @ts-ignore
+const iconMap: Record<string, any> = { RulerDimensionLine, Home, Car };
 
 export function About({ property }: AboutProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -45,11 +48,12 @@ export function About({ property }: AboutProps) {
             <div className="prose prose-slate max-w-none mb-8">
               <p className="text-lg leading-relaxed text-slate-700">{property.about.description}</p>
             </div>
+            
           </div>
           
           <div className="flex-1">
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Highlights</h3>
+              <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Especificações</h3>
               <ul className="space-y-3">
                 {property.about.highlights.map((highlight, index) => (
                   <li key={index} className="flex gap-3 items-start">

@@ -53,7 +53,7 @@ export default function Home() {
 
         {/* Detalhes do imóvel, vizinhança e contato */}
         <About property={itacema366Data} />
-        <Neighborhood />
+        <Neighborhood property={itacema366Data} />
         <AboutMBRAS />
         <Contact property={itacema366Data} />
       </main>

@@ -43,6 +43,11 @@ export function Contact({ property }: ContactProps) {
   async function onSubmit(values: FormValues) {
     setLoading(true);
     setError(null);
+    console.log('Dados enviados para o Supabase:', {
+      ...values,
+      property_code: property?.code || null,
+      created_at: new Date().toISOString(),
+    });
     const { error } = await supabase.from('contacts').insert([
       {
         name: values.name,

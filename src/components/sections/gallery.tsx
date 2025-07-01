@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { PropertyData } from '@/types/special';
@@ -53,7 +53,7 @@ export function Gallery({ property }: GalleryProps) {
     setCurrentIndex(index);
   };
 
-  const visibleThumbnails = property.images.slice(0, 8); 
+  const visibleThumbnails = useMemo(() => property.images.slice(0, 8), [property.images]);
 
   return (
     <section ref={sectionRef} className="py-10 sm:py-16 bg-white">

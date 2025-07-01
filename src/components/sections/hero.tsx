@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import gsap from 'gsap';
 import type { StaticImageData } from "next/image";
+import { useRouter } from 'next/navigation';
 
 interface HeroShowcaseProps {
   image: string | StaticImageData;
@@ -22,6 +23,7 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
   const subtitleRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -41,8 +43,19 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
     return () => ctx.revert();
   }, []);
 
+  const handleButtonClick = () => {
+    if (buttonText.toLowerCase().includes('propriedade')) {
+      router.push('/imovel/itacema-366');
+    } else if (buttonText.toLowerCase().includes('visita')) {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <section ref={heroRef} className="relative min-h-[70vh] sm:min-h-[100vh] flex items-center justify-center overflow-hidden bg-slate-900">
+    <section ref={heroRef} className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-slate-900">
       {/* Imagem de fundo */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -70,7 +83,7 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
         </div>
         <div ref={buttonRef} className="w-full flex items-center justify-center gap-2 sm:gap-4 mt-2 sm:mt-4">
           <hr className="w-8 sm:w-16 border-t border-slate-400/80" />
-          <Button variant="primary" size="lg" className="px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg shadow-xl hover:scale-105 transition-all duration-800 bg-slate-900 text-white border-none">
+          <Button variant="primary" size="lg" className="px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg shadow-xl hover:scale-105 transition-all duration-800 bg-slate-900 text-white border-none" onClick={handleButtonClick}>
             {buttonText}
           </Button>
           <hr className="w-8 sm:w-16 border-t border-slate-400/80" />

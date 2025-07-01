@@ -12,9 +12,10 @@ interface NeighborhoodProps {
   property: PropertyData;
 }
 
-const iconMap = { Shield, School, Hospital, Trees };
+// @ts-ignore
+const iconMap: Record<string, any> = { Shield, School, Hospital, Trees };
 
-export function Neighborhood() {
+export function Neighborhood({ property }: NeighborhoodProps) {
   const [tab, setTab] = useState<'terreo' | 'pav2' | 'pav6'>('terreo');
   const [imgKey, setImgKey] = useState(0); // Forçando re-render da imagem
 
@@ -166,6 +167,33 @@ export function Neighborhood() {
           {(tab === 'terreo' || tab === 'pav2') && (
             <p className="text-xs text-gray-400 mt-1 sm:mt-2 text-center md:text-left">* Área exclusiva para as unidades Itacema 366, com acesso independente.</p>
           )}
+        </div>
+      </div>
+      {/* Diferenciais do bairro - agora abaixo da planta, em linha */}
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 mt-12">
+        <h3 className="text-lg font-bold mb-4 text-slate-900 font-sans text-center">Diferenciais do Bairro</h3>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {property.neighborhoodDifferentials.map((diff, idx) => {
+            // @ts-ignore
+            const Icon = iconMap[diff.icon];
+            return (
+              <li key={idx} className="flex items-start gap-3 bg-white rounded-lg shadow-sm p-4">
+                <span className={`rounded-full p-2 ${diff.iconBackground} ${diff.iconColor}`}>{Icon && <Icon className="h-5 w-5" />}</span>
+                <div>
+                  <span className="font-semibold text-slate-800">{diff.title}</span>
+                  <p className="text-slate-600 text-sm">{diff.description}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        {/* Estatísticas de proximidade - agora horizontal e centralizado */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          {property.walkDistanceStats.map((stat, idx) => (
+            <div key={idx} className="bg-blue-100 text-blue-800 rounded px-4 py-3 text-sm font-semibold min-w-[200px] text-center">
+              {stat.value} <span className="font-normal">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
