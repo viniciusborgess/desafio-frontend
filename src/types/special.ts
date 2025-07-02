@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { ReactElement, ElementType } from "react";
 
 export interface PropertyData {
   name: string;
@@ -15,12 +16,12 @@ export interface PropertyData {
     highlights: string[];
   };
   characteristics: {
-    icon: LucideIcon;
+    icon: ElementType;
     label: string;
     value: string;
   }[];
   neighborhoodDifferentials: {
-    icon: LucideIcon;
+    icon: ElementType;
     iconColor: string;
     iconBackground: string;
     title: string;
