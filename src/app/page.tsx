@@ -14,6 +14,7 @@ import { Contact } from "@/components/sections/contact";
 import { useState } from 'react';
 import { Highlights } from '@/components/sections/highlights';
 import { AboutMBRAS } from '@/components/sections/about-mbras';
+import { FAQ } from '@/components/sections/faq';
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
         <Highlights />
 
         {/* Seção de Destaque */}
-        <section className="py-16 bg-slate-900">
+        <section id="destaque" className="py-16 bg-slate-900">
           <Container>
             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
               {/* Texto à esquerda */}
@@ -55,7 +56,9 @@ export default function Home() {
         <About property={itacema366Data} />
         <Neighborhood property={itacema366Data} />
         <AboutMBRAS />
-        <Contact property={itacema366Data} />
+        <div id="faq">
+          <FAQ />
+        </div>
       </main>
       <Footer />
     </>

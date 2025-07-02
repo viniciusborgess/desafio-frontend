@@ -11,7 +11,7 @@ export default function NotFound() {
       <main className="min-h-[70vh] flex items-center">
         <Container>
           <div className="max-w-2xl mx-auto text-center py-20">
-            <h1 className="text-5xl font-serif font-bold mb-6">Imóvel não encontrado</h1>
+            <h1 className="text-5xl font-sans font-bold mb-6">Imóvel não encontrado</h1>
             <p className="text-xl text-slate-600 mb-8">
               O imóvel que você está procurando não existe ou foi removido.
             </p>

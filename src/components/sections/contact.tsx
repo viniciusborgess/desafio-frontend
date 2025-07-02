@@ -71,7 +71,7 @@ export function Contact({ property }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-16 bg-slate-50">
+    <section id="contact" className="py-10 sm:py-16 bg-slate-50 ">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-sans font-bold mb-2 text-slate-900 text-center sm:text-left">Entre em Contato</h2>
         <p className="text-slate-600 mb-6 sm:mb-8 text-base sm:text-lg text-center sm:text-left">

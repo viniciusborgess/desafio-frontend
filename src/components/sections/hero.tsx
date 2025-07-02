@@ -45,7 +45,10 @@ export function HeroShowcase({ image, tag = 'LANÇAMENTO', title, subtitle, loca
 
   const handleButtonClick = () => {
     if (buttonText.toLowerCase().includes('propriedade')) {
-      router.push('/imovel/itacema-366');
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
     } else if (buttonText.toLowerCase().includes('visita')) {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
