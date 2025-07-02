@@ -71,7 +71,7 @@ export function Contact({ property }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-16 bg-slate-50 ">
+    <section id="contact" className="py-10 sm:py-16 bg-white">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-sans font-bold mb-2 text-slate-900 text-center sm:text-left">Entre em Contato</h2>
         <p className="text-slate-600 mb-6 sm:mb-8 text-base sm:text-lg text-center sm:text-left">
@@ -79,7 +79,7 @@ export function Contact({ property }: ContactProps) {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          <div className="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+          <div className="bg-white p-4 sm:p-8 rounded-lg shadow-xl">
             {isSubmitted ? (
               <div className="text-center py-8">
                 <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
