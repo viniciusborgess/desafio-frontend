@@ -96,8 +96,8 @@ export function Neighborhood({ property }: NeighborhoodProps) {
     'Entrada Itacema 366*',
   ];
   const listaPav2 = [
-    'Academia*',
-    'Brinquedoteca*',
+    'Academia',
+    'Brinquedoteca',
     'Unidades Home Studio',
   ];
   const listaPav6 = [
