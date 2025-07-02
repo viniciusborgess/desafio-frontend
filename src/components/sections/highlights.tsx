@@ -120,7 +120,10 @@ export function Highlights() {
   }, []);
 
   // Filtrar highlights por tab
-  const highlightsFiltrados = highlights.filter((item) => item.tab === tab);
+  const highlightsFiltrados = React.useMemo(() =>
+    highlights.filter((item) => item.tab === tab),
+    [tab]
+  );
 
   return (
     <section ref={sectionRef} className="py-10 sm:py-20 bg-white" id="highlights">
