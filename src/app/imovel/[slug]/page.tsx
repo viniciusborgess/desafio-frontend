@@ -5,12 +5,9 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Contact } from '@/components/sections/contact';
 
-interface Props {
-  params: { slug: string };
-}
-
-export default function ImovelPage({ params }: Props) {
-  if (params.slug !== 'contato') return notFound();
+export default async function ImovelPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  if (slug !== 'contato') return notFound();
   return (
     <>
       <Header />
