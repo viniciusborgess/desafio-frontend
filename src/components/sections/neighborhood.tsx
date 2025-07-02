@@ -6,7 +6,7 @@ import { Shield, School, Hospital, Trees } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 gsap.registerPlugin(ScrollTrigger);
 
 interface NeighborhoodProps {
@@ -20,6 +20,7 @@ export function Neighborhood({ property }: NeighborhoodProps) {
   const [tab, setTab] = useState<'terreo' | 'pav2' | 'pav6'>('terreo');
   const [imgKey, setImgKey] = useState(0); // Forçando re-render da imagem
   const pathname = usePathname();
+  const router = useRouter();
 
   const plantaImg =
     tab === 'terreo'
@@ -173,12 +174,13 @@ export function Neighborhood({ property }: NeighborhoodProps) {
           )}
           {/* Botão de interesse */}
           {pathname !== '/imovel/contato' && (
-            <a
-              href="/imovel/contato"
+            <button
+              type="button"
+              onClick={() => router.push('/imovel/contato')}
               className="mt-4 inline-block px-6 py-2 bg-slate-900 text-white font-bold rounded shadow hover:bg-slate-800 transition-colors text-center w-full md:w-auto"
             >
               Tenho interesse
-            </a>
+            </button>
           )}
         </div>
       </div>
