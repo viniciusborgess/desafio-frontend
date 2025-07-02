@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Container } from '@/components/ui/container';
 import { PropertyData } from '@/types/special';
 import { Shield, School, Hospital, Trees } from 'lucide-react';
@@ -85,7 +85,7 @@ export function Neighborhood({ property }: NeighborhoodProps) {
   };
 
   // Listas de cada pavimento
-  const listaTerreo = [
+  const listaTerreo = useMemo(() => [
     'Entrada Residencial',
     'Entrada Serviço',
     'Portaria',
@@ -94,24 +94,26 @@ export function Neighborhood({ property }: NeighborhoodProps) {
     'Entrada Veículos',
     'Loja',
     'Entrada Itacema 366*',
-  ];
-  const listaPav2 = [
+  ], []);
+  const listaPav2 = useMemo(() => [
     'Academia',
     'Brinquedoteca',
     'Unidades Home Studio',
-  ];
-  const listaPav6 = [
+  ], []);
+  const listaPav6 = useMemo(() => [
     'Piscina',
     'Lounge',
     'Espaço Gourmet',
     'Sauna',
     'Ducha',
     'WC',
-  ];
+  ], []);
 
-  let listaAtual = listaTerreo;
-  if (tab === 'pav2') listaAtual = listaPav2;
-  if (tab === 'pav6') listaAtual = listaPav6;
+  const listaAtual = useMemo(() => {
+    if (tab === 'pav2') return listaPav2;
+    if (tab === 'pav6') return listaPav6;
+    return listaTerreo;
+  }, [tab, listaTerreo, listaPav2, listaPav6]);
 
   return (
     <section className="py-8 sm:py-16 bg-white" id="neighborhood">
@@ -185,6 +187,7 @@ export function Neighborhood({ property }: NeighborhoodProps) {
         <h3 className="text-lg font-bold mb-4 text-slate-900 font-sans text-center">Diferenciais do Bairro</h3>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {property.neighborhoodDifferentials.map((diff, idx) => {
+            // @ts-ignore
             const Icon = iconMap[diff.icon];
             return (
               <li key={idx} className="flex items-start gap-3 bg-white rounded-lg shadow-md p-4">
