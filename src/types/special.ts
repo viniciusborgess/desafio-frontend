@@ -15,12 +15,12 @@ export interface PropertyData {
     highlights: string[];
   };
   characteristics: {
-    icon: LucideIcon;
+    icon: string;
     label: string;
     value: string;
   }[];
   neighborhoodDifferentials: {
-    icon: LucideIcon;
+    icon: string;
     iconColor: string;
     iconBackground: string;
     title: string;
