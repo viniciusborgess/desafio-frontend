@@ -55,12 +55,15 @@ export function About({ property }: AboutProps) {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-bold mb-4 text-slate-900 font-sans">Especificações</h3>
               <ul className="space-y-3">
-                {property.about.highlights.map((highlight, index) => (
-                  <li key={index} className="flex gap-3 items-start">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-slate-900 mt-0.5" />
-                    <span className="text-slate-700">{highlight}</span>
-                  </li>
-                ))}
+                {property.characteristics.map((item, index) => {
+                  const Icon = iconMap[item.icon];
+                  return (
+                    <li key={index} className="flex gap-3 items-start">
+                      {Icon && <Icon className="h-5 w-5 flex-shrink-0 text-slate-900 mt-0.5" />}
+                      <span className="text-slate-700">{item.label}: {item.value}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

@@ -185,7 +185,6 @@ export function Neighborhood({ property }: NeighborhoodProps) {
         <h3 className="text-lg font-bold mb-4 text-slate-900 font-sans text-center">Diferenciais do Bairro</h3>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {property.neighborhoodDifferentials.map((diff, idx) => {
-            // @ts-ignore
             const Icon = iconMap[diff.icon];
             return (
               <li key={idx} className="flex items-start gap-3 bg-white rounded-lg shadow-md p-4">
