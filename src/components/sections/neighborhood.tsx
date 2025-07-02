@@ -6,17 +6,20 @@ import { Shield, School, Hospital, Trees } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 gsap.registerPlugin(ScrollTrigger);
 
 interface NeighborhoodProps {
   property: PropertyData;
 }
 
-const iconMap = { Shield, School, Hospital, Trees };
+// @ts-ignore
+const iconMap: Record<string, any> = { Shield, School, Hospital, Trees };
 
-export function Neighborhood() {
+export function Neighborhood({ property }: NeighborhoodProps) {
   const [tab, setTab] = useState<'terreo' | 'pav2' | 'pav6'>('terreo');
   const [imgKey, setImgKey] = useState(0); // Forçando re-render da imagem
+  const pathname = usePathname();
 
   const plantaImg =
     tab === 'terreo'
@@ -166,6 +169,42 @@ export function Neighborhood() {
           {(tab === 'terreo' || tab === 'pav2') && (
             <p className="text-xs text-gray-400 mt-1 sm:mt-2 text-center md:text-left">* Área exclusiva para as unidades Itacema 366, com acesso independente.</p>
           )}
+          {/* Botão de interesse */}
+          {pathname !== '/imovel/contato' && (
+            <a
+              href="/imovel/contato"
+              className="mt-4 inline-block px-6 py-2 bg-slate-900 text-white font-bold rounded shadow hover:bg-slate-800 transition-colors text-center w-full md:w-auto"
+            >
+              Tenho interesse
+            </a>
+          )}
+        </div>
+      </div>
+      {/* Diferenciais do bairro */}
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 mt-12">
+        <h3 className="text-lg font-bold mb-4 text-slate-900 font-sans text-center">Diferenciais do Bairro</h3>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {property.neighborhoodDifferentials.map((diff, idx) => {
+            // @ts-ignore
+            const Icon = iconMap[diff.icon];
+            return (
+              <li key={idx} className="flex items-start gap-3 bg-white rounded-lg shadow-md p-4">
+                <span className={`rounded-full p-2 ${diff.iconBackground} ${diff.iconColor}`}>{Icon && <Icon className="h-5 w-5" />}</span>
+                <div>
+                  <span className="font-semibold text-slate-800">{diff.title}</span>
+                  <p className="text-slate-600 text-sm">{diff.description}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        {/* Estatísticas de proximidade */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          {property.walkDistanceStats.map((stat, idx) => (
+            <div key={idx} className="bg-slate-200 text-black rounded px-4 py-3 text-sm font-semibold min-w-[200px] text-center">
+              {stat.value} <span className="font-normal">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

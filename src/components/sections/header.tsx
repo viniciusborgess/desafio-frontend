@@ -6,10 +6,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,17 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleAgendarVisita = () => {
+    router.push('/imovel/contato');
+  };
+
+  const handleScrollTo = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header
@@ -48,16 +61,16 @@ export function Header() {
             <Link href="#about" className="text-slate-700 hover:text-gray-500 transition-colors">
               Sobre
             </Link>
-            <Link href="#gallery" className="text-slate-700 hover:text-gray-500 transition-colors">
+            <Link href="#gallery" className="text-slate-700 hover:text-gray-500 transition-colors" onClick={e => { e.preventDefault(); handleScrollTo('destaque'); }}>
               Galeria
             </Link>
             <Link href="#highlights" className="text-slate-700 hover:text-gray-500 transition-colors">
               Destaques
             </Link>
-            <Link href="#contact" className="text-slate-700 hover:text-gray-500 transition-colors">
-              Contato
+            <Link href="#faq" className="text-slate-700 hover:text-gray-500 transition-colors" onClick={e => { e.preventDefault(); handleScrollTo('faq'); }}>
+              FAQ
             </Link>
-            <Button variant="primary" size="sm" className='bg-slate-900'>
+            <Button variant="primary" size="sm" className='bg-slate-900' onClick={handleAgendarVisita}>
               Agendar Visita
             </Button>
           </nav>
@@ -110,7 +123,7 @@ export function Header() {
               >
                 Contato
               </Link>
-              <Button variant="primary" className="mt-2 bg-slate-900">
+              <Button variant="primary" className="mt-2 bg-slate-900" onClick={() => { setIsMobileMenuOpen(false); handleAgendarVisita(); }}>
                 Agendar Visita
               </Button>
             </nav>

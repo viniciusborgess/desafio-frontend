@@ -182,7 +182,10 @@ export function Highlights() {
           ))}
         </div>
         <div className="flex justify-center">
-          <Button variant="outline" size="lg" className="px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all">
+          <Button variant="outline" size="lg" className="px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full border-slate-200 shadow-sm hover:shadow-md transition-all" onClick={() => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+          }}>
             TODOS EMPREENDIMENTOS
           </Button>
         </div>
